@@ -66,11 +66,6 @@
   ignore_errors: yes
   changed_when: regser.rc == 0
 
-- name: Check if the Luna server already registered
-  fail:
-    msg: 'You already registered this Luna server!'
-  when: "'Error:  This server is already registered in the SafeNet-INC' in regser.stdout"
-
 - name: Generate a client certificate
   command:
     chdir: /usr/safenet/lunaclient/bin
